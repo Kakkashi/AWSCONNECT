@@ -139,6 +139,78 @@
       <maximum-dynamic-server-count>0</maximum-dynamic-server-count>
     </dynamic-servers>
   </cluster>
+ <listen-address>172.18.1.11</listen-address>
+    <server-life-cycle-timeout-val>30</server-life-cycle-timeout-val>
+    <startup-timeout>0</startup-timeout>
+    <server-diagnostic-config>
+      <name>AdminServer</name>
+    </server-diagnostic-config>
+  </server>
+  <server>
+    <name>WLS_FORMS</name>
+    <machine>AdminServerMachine</machine>
+    <listen-port>9001</listen-port>
+    <cluster>cluster_forms</cluster>
+    <web-server>
+      <name>WLS_FORMS</name>
+      <web-server-log>
+        <name>WLS_FORMS</name>
+        <elf-fields>date time cs-method ctx-ecid ctx-rid cs-uri sc-status bytes</elf-fields>
+        <log-file-format>extended</log-file-format>
+      </web-server-log>
+    </web-server>
+    <listen-address></listen-address>
+    <jta-migratable-target>
+      <user-preferred-server>WLS_FORMS</user-preferred-server>
+      <cluster>cluster_forms</cluster>
+    </jta-migratable-target>
+    <server-life-cycle-timeout-val>30</server-life-cycle-timeout-val>
+    <startup-timeout>0</startup-timeout>
+    <server-diagnostic-config>
+      <name>WLS_FORMS</name>
+    </server-diagnostic-config>
+  </server>
+  <server>
+    <name>WLS_REPORTS</name>
+    <machine>AdminServerMachine</machine>
+    <listen-port>9002</listen-port>
+    <cluster>cluster_reports</cluster>
+    <web-server>
+      <name>WLS_REPORTS</name>
+      <web-server-log>
+        <name>WLS_REPORTS</name>
+        <elf-fields>date time cs-method ctx-ecid ctx-rid cs-uri sc-status bytes</elf-fields>
+        <log-file-format>extended</log-file-format>
+      </web-server-log>
+    </web-server>
+    <listen-address></listen-address>
+    <jta-migratable-target>
+      <user-preferred-server>WLS_REPORTS</user-preferred-server>
+      <cluster>cluster_reports</cluster>
+    </jta-migratable-target>
+    <server-life-cycle-timeout-val>30</server-life-cycle-timeout-val>
+    <startup-timeout>0</startup-timeout>
+    <server-diagnostic-config>
+      <name>WLS_REPORTS</name>
+    </server-diagnostic-config>
+  </server>
+  <server-template>
+    <name>wsm-cache-server-template</name>
+    <ssl>
+      <name>wsm-cache-server-template</name>
+      <listen-port>8100</listen-port>
+    </ssl>
+    <listen-port>7100</listen-port>
+    <server-life-cycle-timeout-val>30</server-life-cycle-timeout-val>
+    <startup-timeout>0</startup-timeout>
+  </server-template>
+  <cluster>
+    <name>cluster_forms</name>
+    <coherence-cluster-system-resource>defaultCoherenceCluster</coherence-cluster-system-resource>
+    <dynamic-servers>
+      <maximum-dynamic-server-count>0</maximum-dynamic-server-count>
+    </dynamic-servers>
+  </cluster>
   <production-mode-enabled>true</production-mode-enabled>
   <embedded-ldap>
     <name>base_domain</name>
